@@ -23,5 +23,15 @@ namespace gymTracker
         {
             InitializeComponent();
         }
+
+        private void todaysWorkoutBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // open main menu window
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Owner = this; // set the owner of the main window to today's workout window
+            mainWindow.Show();
+            // close today's workout window
+            this.Hide();
+        }
     }
 }

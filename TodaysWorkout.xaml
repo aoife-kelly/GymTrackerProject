@@ -19,7 +19,18 @@
         </Grid.RowDefinitions>
 
         <!-- header -->
-        <Border Grid.Row="0" Style="{StaticResource HeaderBar}"/>
+        <Border Grid.Row="0" Style="{StaticResource HeaderBar}">
+
+            <Button x:Name="todaysWorkoutBackBtn"
+            Content="Back"
+            Style="{StaticResource WhiteRoundedButton}"
+            Width="70"
+            Height="40"
+            Margin="20,15,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="todaysWorkoutBackBtn_Click"/>
+        </Border>
 
         <!-- page content -->
         <Grid Grid.Row="1">
