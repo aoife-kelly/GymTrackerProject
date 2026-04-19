@@ -11,65 +11,16 @@
         SnapsToDevicePixels="True">
     <Window.Resources>
 
-        <!-- textBox with pink border + rounded corners -->
-        <Style x:Key="PinkTextBox" TargetType="TextBox">
-            <Setter Property="Width" Value="250"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="0,10"/>
-            <Setter Property="Padding" Value="10"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="BorderBrush" Value="{StaticResource PinkBrush}"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="TextBox">
-                        <Grid>
-                            <!-- bg and border -->
-                            <Border CornerRadius="8"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Background="{TemplateBinding Background}"/>
-
-                            <!-- text input -->
-                            <ScrollViewer x:Name="PART_ContentHost" 
-                                            Margin="10,0,0,0"
-                                            VerticalAlignment="Center"/>
-
-                            <!-- placeholder -->
-                            <TextBlock Text="{TemplateBinding Tag}"
-                                        Foreground="#888"
-                                        Margin="10,0,0,0"
-                                        VerticalAlignment="Center"
-                                        IsHitTestVisible="False"
-                                        FontSize="14">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="Visibility" Value="Collapsed"/>
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource AncestorType=TextBox}}" 
-                                                         Value="">
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style>
-                            </TextBlock>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </Window.Resources>
 
     <Grid Background="White">
 
         <!-- stacking everything -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/> <!-- header -->
+            <RowDefinition Height="Auto"/> <!-- workout name/save -->
+            <RowDefinition Height="Auto"/> <!-- search bar -->
+            <RowDefinition Height="*"/> <!-- rest of the area left -->
         </Grid.RowDefinitions>
 
         <!-- header -->
@@ -99,12 +50,16 @@
                         Style="{StaticResource PinkTextBox}"
                         Tag="Enter workout name..."
                         Grid.Column="0"
-                        Margin="0,-10,20,10" GotFocus="workoutNameTbx_GotFocus" LostFocus="workoutNameTbx_LostFocus"/>
+                        Margin="0,-10,20,10" 
+                        GotFocus="workoutNameTbx_GotFocus" 
+                        LostFocus="workoutNameTbx_LostFocus"/>
 
             <Button x:Name="saveBtn"
                         Style="{StaticResource PinkRoundedButton}"
                         Content="Save"
-                        Grid.Column="1" Margin="0,-10,0,10" Click="saveBtn_Click"/>
+                        Grid.Column="1" 
+                        Margin="0,-10,0,10" 
+                        Click="saveBtn_Click"/>
         </Grid>
 
         <!-- search -->

@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:gymTracker"
              StartupUri="LoginScreen.xaml">
     <Application.Resources>
+        
         <SolidColorBrush x:Key="PinkBrush" Color="#EFA2FA"/>
 
         <Style x:Key="PinkRoundedButton" TargetType="Button">

@@ -50,7 +50,7 @@ namespace gymTracker
 
         private void workoutNameTbx_GotFocus(object sender, RoutedEventArgs e)
         {
-                        workoutNameTbx.Tag = "";
+            workoutNameTbx.Tag = "";
         }
 
         private void workoutNameTbx_LostFocus(object sender, RoutedEventArgs e)
@@ -64,7 +64,7 @@ namespace gymTracker
         private void saveBtn_Click(object sender, RoutedEventArgs e)
         {
             // save workout to database
-                new customMbx("Workout saved successfully!").ShowDialog();
+            new customMbx("Workout saved successfully!").ShowDialog();
         }
     }
 }
