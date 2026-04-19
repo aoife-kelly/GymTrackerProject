@@ -52,6 +52,85 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!-- header bar style -->
+        <Style x:Key="HeaderBar" TargetType="Border">
+            <Setter Property="Background" Value="{StaticResource PinkBrush}"/>
+            <Setter Property="Height" Value="70"/>
+        </Style>
+
+        <!-- PasswordBox with pink border + rounded corners -->
+        <Style x:Key="PinkPasswordBox" TargetType="PasswordBox">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PinkBrush}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border CornerRadius="8"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PinkTextBox" TargetType="TextBox">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PinkBrush}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                <Grid>
+                    <!-- bg + borderf -->
+                    <Border CornerRadius="8"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"/>
+
+                    <!-- text input -->
+                    <ScrollViewer x:Name="PART_ContentHost"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"/>
+
+                    <!-- username placeholder -->
+                    <TextBlock Text="{TemplateBinding Tag}"
+                                Foreground="#888"
+                                Margin="10,0,0,0"
+                                VerticalAlignment="Center"
+                                IsHitTestVisible="False"
+                                FontSize="14">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource AncestorType=TextBox}}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 
 </Application>

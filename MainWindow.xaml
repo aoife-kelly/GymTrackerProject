@@ -37,7 +37,7 @@
                 Width="330"
                 FontSize="35"
                 HorizontalAlignment="Center"
-                Margin="0,15,0,15"/>
+                Margin="0,15,0,15" Click="todaysWorkout_Click"/>
 
         <!-- menu buttons -->
         <StackPanel Grid.Row="2"

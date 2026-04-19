@@ -47,6 +47,24 @@ namespace gymTracker
                 exerciseSearchTbx.Tag = "Search...";
             }
         }
-        
+
+        private void workoutNameTbx_GotFocus(object sender, RoutedEventArgs e)
+        {
+                        workoutNameTbx.Tag = "";
+        }
+
+        private void workoutNameTbx_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(workoutNameTbx.Text))
+            {
+                workoutNameTbx.Tag = "Enter workout name...";
+            }
+        }
+
+        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // save workout to database
+                new customMbx("Workout saved successfully!").ShowDialog();
+        }
     }
 }

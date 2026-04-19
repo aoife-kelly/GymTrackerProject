@@ -44,5 +44,14 @@ namespace gymTracker
             this.Hide();
 
         }
+
+        private void todaysWorkout_Click(object sender, RoutedEventArgs e)
+        {
+            // open TodaysWorkout window, which will show the workout for the day based on the date of stored workouts
+            TodaysWorkout todaysWorkout = new TodaysWorkout();
+            todaysWorkout.Owner = this; // set the owner of the today's workout window to this main window
+            todaysWorkout.Show();
+            this.Hide();
+        }
     }
 }
