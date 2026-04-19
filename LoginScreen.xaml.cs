@@ -34,7 +34,7 @@ namespace gymTracker
                 mainWindow.Owner = this; // set the owner of the main window to this login window
                 mainWindow.Show();
                 // close this login window
-                this.Close();
+                this.Hide();
             }
             else
             {
