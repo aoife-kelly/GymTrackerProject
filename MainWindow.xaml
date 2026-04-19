@@ -59,7 +59,8 @@
                     Width="260"
                     Height="55"
                     FontSize="20"
-                    Margin="0,10,0,0"/>
+                    Margin="0,10,0,0"
+                    Click="savedRoutinesBtn_Click" />
 
             <Button x:Name="pastWorkoutsBtn"
                     Style="{StaticResource WhiteRoundedButton}"

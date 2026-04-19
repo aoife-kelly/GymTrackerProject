@@ -1,0 +1,41 @@
+﻿<Window x:Class="gymTracker.SavedRoutines"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gymTracker"
+        mc:Ignorable="d"
+        Title="SavedRoutines"
+        Height="844"
+        Width="399"
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- header -->
+        <Border Grid.Row="0"
+                Style="{StaticResource HeaderBar}">
+
+            <Button x:Name="savedRoutinesBackBtn"
+                    Content="Back"
+                    Style="{StaticResource WhiteRoundedButton}"
+                    Width="70"
+                    Height="40"
+                    Margin="20,15,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="savedRoutinesBackBtn_Click" />
+        </Border>
+
+        <!-- page content -->
+        <Grid Grid.Row="1">
+            <!-- content -->
+        </Grid>
+    </Grid>
+</Window>

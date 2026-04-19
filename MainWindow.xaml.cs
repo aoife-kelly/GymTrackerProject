@@ -42,7 +42,6 @@ namespace gymTracker
             createWorkout.Owner = this; // set the owner of the create workout window to this main window
             createWorkout.Show();
             this.Hide();
-
         }
 
         private void todaysWorkout_Click(object sender, RoutedEventArgs e)
@@ -51,6 +50,14 @@ namespace gymTracker
             TodaysWorkout todaysWorkout = new TodaysWorkout();
             todaysWorkout.Owner = this; // set the owner of the today's workout window to this main window
             todaysWorkout.Show();
+            this.Hide();
+        }
+
+        private void savedRoutinesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            SavedRoutines savedRoutines = new SavedRoutines();
+            savedRoutines.Owner = this; // set the owner of the saved routines window to this main window
+            savedRoutines.Show();
             this.Hide();
         }
     }

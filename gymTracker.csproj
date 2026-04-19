@@ -60,6 +60,9 @@
     </ApplicationDefinition>
     <Compile Include="API.cs" />
     <Compile Include="BodyPart.cs" />
+    <Compile Include="SavedRoutines.xaml.cs">
+      <DependentUpon>SavedRoutines.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TodaysWorkout.xaml.cs">
       <DependentUpon>TodaysWorkout.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SavedRoutines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TodaysWorkout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
