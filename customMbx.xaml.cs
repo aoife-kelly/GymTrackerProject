@@ -10,24 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace gymTracker
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for customMbx.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class customMbx : Window
     {
-        public MainWindow()
+        public customMbx(string message)
         {
             InitializeComponent();
+            MessageText.Text = message;
+        }
+        private void OkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
-        private void menuBackBtn_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }

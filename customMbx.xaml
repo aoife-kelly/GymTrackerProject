@@ -1,11 +1,11 @@
-﻿<Window x:Class="gymTracker.Pages.customMbx"
+﻿<Window x:Class="gymTracker.customMbx"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:gymTracker.Pages"
+        xmlns:local="clr-namespace:gymTracker"
         mc:Ignorable="d"
-        Title="customMbx" Height="175" Width="250" WindowStartupLocation="CenterScreen">
+        Title="customMbx" Height="200" Width="250" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <!-- pink colour -->
         <SolidColorBrush x:Key="PinkBrush" Color="#ED79D5"/>
