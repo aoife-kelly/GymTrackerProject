@@ -27,7 +27,22 @@ namespace gymTracker
 
         private void menuBackBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            // open LoginScreen window
+            LoginScreen loginScreen = new LoginScreen();
+            loginScreen.Owner = this; // set the owner of the login screen to this main window
+            loginScreen.Show();
+            // hide this main window
+            this.Hide();
+        }
+
+        private void createWorkoutBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // open CreateWorkout window
+            CreateWorkout createWorkout = new CreateWorkout();
+            createWorkout.Owner = this; // set the owner of the create workout window to this main window
+            createWorkout.Show();
+            this.Hide();
+
         }
     }
 }

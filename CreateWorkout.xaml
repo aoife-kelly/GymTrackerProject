@@ -1,0 +1,121 @@
+﻿<Window x:Class="gymTracker.CreateWorkout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gymTracker"
+        mc:Ignorable="d"
+        Title="CreateWorkout" Height="844" Width="390" 
+        WindowStartupLocation="CenterScreen"
+        UseLayoutRounding="True"
+        SnapsToDevicePixels="True">
+    <Window.Resources>
+
+        <!-- textBox with pink border + rounded corners -->
+        <Style x:Key="PinkTextBox" TargetType="TextBox">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PinkBrush}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <!-- bg and border -->
+                            <Border CornerRadius="8"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"/>
+
+                            <!-- text input -->
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                            Margin="10,0,0,0"
+                                            VerticalAlignment="Center"/>
+
+                            <!-- placeholder -->
+                            <TextBlock Text="{TemplateBinding Tag}"
+                                        Foreground="#888"
+                                        Margin="10,0,0,0"
+                                        VerticalAlignment="Center"
+                                        IsHitTestVisible="False"
+                                        FontSize="14">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource AncestorType=TextBox}}" 
+                                                         Value="">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="White">
+
+        <!-- stacking everything -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- header -->
+        <Border Background="{StaticResource PinkBrush}"
+                Grid.Row="0">
+            <Button x:Name="menuBackBtn"
+                    Content="Back"
+                    Style="{StaticResource WhiteRoundedButton}"
+                    Width="70"
+                    Height="40"
+                    Margin="20,15,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Click="menuBackBtn_Click"/>
+        </Border>
+
+        <!-- workout name nad save button beside each other -->
+        <Grid Grid.Row="1"
+                Margin="20,20,20,0"
+                VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/> <!-- takes yp available space -->
+                <ColumnDefinition Width="65"/> <!-- had to change this from 80 bc it looked weird when i ran it -->
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="workoutNameTbx"
+                        Style="{StaticResource PinkTextBox}"
+                        Tag="Enter workout name..."
+                        Grid.Column="0"
+                        Margin="0,-10,20,10"/>
+
+            <Button x:Name="saveBtn"
+                        Style="{StaticResource PinkRoundedButton}"
+                        Content="Save"
+                        Grid.Column="1" Margin="0,-10,0,10"/>
+        </Grid>
+
+        <!-- search -->
+        <TextBox x:Name="exerciseSearchTbx"
+                    Grid.Row="2"
+                    Style="{StaticResource PinkTextBox}"
+                    Tag="Search..."
+                    Margin="45,10,45,10"
+                    GotFocus="exerciseSearchTbx_GotFocus"
+                    LostFocus="exerciseSearchTbx_LostFocus"/>
+
+    </Grid>
+
+</Window>

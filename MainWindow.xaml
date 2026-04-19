@@ -8,101 +8,78 @@
         Title="MainWindow" Height="844" Width="390" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <SolidColorBrush x:Key="PinkBrush" Color="#EFA2FA"/>
-        <!--Styling pink buttons-->
-        <Style x:Key="PinkRoundedButton" TargetType="Button">
-            <Setter Property="Background" Value="{StaticResource PinkBrush}"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                            CornerRadius="10"
-                            Padding="{TemplateBinding Padding}">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <!--styling white buttons-->
-        <Style x:Key="WhiteRoundedButton" TargetType="Button">
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="{StaticResource PinkBrush}"/>
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="BorderBrush" Value="{StaticResource PinkBrush}"/>
-            <Setter Property="BorderThickness" Value="2"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="10"
-                            Padding="{TemplateBinding Padding}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+
     </Window.Resources>
 
-    <Grid>
+    <!-- layout -->
+    <Grid Background="White">
 
-        <!-- pink header bar -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <!-- header -->
+            <RowDefinition Height="Auto"/>
+            <!-- todays workout -->
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- header -->
         <Border Background="{StaticResource PinkBrush}"
-            Height="70"
-            VerticalAlignment="Top"/>
+                Grid.Row="0"/>
 
-        <!-- Big button -->
-        <Button Style="{StaticResource PinkRoundedButton}"
-            Content="Todays Workout"
-            HorizontalAlignment="Center"
-            Margin="0,160,0,0"
-            VerticalAlignment="Top"
-            Height="100"
-            Width="330"
-            FontSize="24"
-            />
-        <Button Style="{StaticResource WhiteRoundedButton}"
-            Content="Create Workout" 
-            HorizontalAlignment="Center" 
-            Margin="0,270,0,0" 
-            VerticalAlignment="Top" 
-            Height="55" 
-            Width="260"
-            FontSize="20"
-            />
-        <Button Style="{StaticResource WhiteRoundedButton}"
-            Content="Saved Routines" 
-            HorizontalAlignment="Center" 
-            Margin="0,340,0,0" 
-            VerticalAlignment="Top" 
-            Height="55" 
-            Width="260"
-            FontSize="20"
-            />
-        <Button Style="{StaticResource WhiteRoundedButton}"
-            Content="Past Workouts" 
-            HorizontalAlignment="Center" 
-            Margin="0,410,0,0" 
-            VerticalAlignment="Top" 
-            Height="40" 
-            Width="200"
-            FontSize="20"
-            />
-        <Button x:Name="menuBackBtn" Style="{StaticResource PinkRoundedButton}"
-            Content="Back" 
-            HorizontalAlignment="Center" 
-            Margin="0,740,0,0" 
-            VerticalAlignment="Top" 
-            Height="40" 
-            Width="200"
-            FontSize="20" 
-            Click="menuBackBtn_Click"/>
+        <!-- todays workout -->
+        <Button x:Name="todaysWorkout"
+                Grid.Row="1"
+                Style="{StaticResource PinkRoundedButton}"
+                Content="Todays Workout"
+                Height="100"
+                Width="330"
+                FontSize="35"
+                HorizontalAlignment="Center"
+                Margin="0,15,0,15"/>
 
+        <!-- menu buttons -->
+        <StackPanel Grid.Row="2"
+                    Margin="0,20,0,50"
+                    HorizontalAlignment="Center">
+
+            <Button x:Name="createWorkoutBtn"
+                    Style="{StaticResource WhiteRoundedButton}"
+                    Content="Create Workout"
+                    Width="260"
+                    Height="55"
+                    FontSize="20"
+                    Click="createWorkoutBtn_Click"
+                    Margin="0,10,0,0"/>
+
+            <Button x:Name="savedRoutinesBtn"
+                    Style="{StaticResource WhiteRoundedButton}"
+                    Content="Saved Routines"
+                    Width="260"
+                    Height="55"
+                    FontSize="20"
+                    Margin="0,10,0,0"/>
+
+            <Button x:Name="pastWorkoutsBtn"
+                    Style="{StaticResource WhiteRoundedButton}"
+                    Content="Past Workouts"
+                    Width="200"
+                    Height="50"
+                    FontSize="18"
+                    Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <!-- back btn -->
+        <Button x:Name="menuBackBtn"
+                Grid.Row="4"
+                Style="{StaticResource PinkRoundedButton}"
+                Content="Back"
+                Width="200"
+                Height="40"
+                FontSize="20"
+                HorizontalAlignment="Center"
+                Margin="0,20,0,20"
+                Click="menuBackBtn_Click"/>
     </Grid>
 </Window>
